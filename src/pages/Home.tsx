@@ -1,15 +1,15 @@
+// Home.js
 import React from "react";
 import { Link } from "react-router-dom";
+import "../App.css"; // Assurez-vous que le chemin est correct
 
 const Home: React.FC = () => {
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
+    <div className="container">
       <h1>Bienvenue sur Spotify Explorer</h1>
-      <p>Découvrez des artistes, des morceaux, et plus encore !</p>
+      <p>Découvrez des artistes, des morceaux, et plus encore!</p>
       <Link to="/list">
-        <button style={{ padding: "10px 20px", fontSize: "16px" }}>
-          Commencez la recherche
-        </button>
+        <button>Commencez la recherche</button>
       </Link>
     </div>
   );

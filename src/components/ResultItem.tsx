@@ -1,3 +1,4 @@
+// ResultItem.js
 import React from "react";
 import { Link } from "react-router-dom";
 import { SpotifyTrack } from "../types/spotify";
@@ -8,11 +9,11 @@ interface ResultItemProps {
 
 const ResultItem: React.FC<ResultItemProps> = ({ track }) => {
   return (
-    <div style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
+    <div className="card">
       <img
         src={track.album.images[0]?.url}
         alt={track.name}
-        style={{ width: "50px", height: "50px", marginRight: "10px" }}
+        style={{ width: "100px", height: "100px", borderRadius: "8px" }}
       />
       <div>
         <h3>{track.name}</h3>

@@ -1,3 +1,4 @@
+// ListView.js
 import React, { useState } from "react";
 import { getAccessToken, searchSpotify } from "../api/spotify";
 import SearchBar from "../components/SearchBar";
@@ -15,10 +16,10 @@ const ListView: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="container">
       <h1>Rechercher des morceaux ou artistes</h1>
       <SearchBar query={query} onChange={setQuery} onSearch={handleSearch} />
-      <div>
+      <div className="card-list">
         {results.map((track) => (
           <ResultItem key={track.id} track={track} />
         ))}

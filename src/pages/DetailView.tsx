@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAccessToken, fetchArtistDetails } from "../api/spotify";
 import { SpotifyArtist } from "../types/spotify";
+import "../App.css";
 
 const DetailView: React.FC = () => {
   const { id } = useParams();
@@ -19,13 +20,12 @@ const DetailView: React.FC = () => {
   if (!artist) return <p>Chargement des données...</p>;
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
+    <div>
       <h1>{artist.name}</h1>
       {artist.images[0] && (
         <img
           src={artist.images[0].url}
           alt={artist.name}
-          style={{ width: "200px", borderRadius: "10px" }}
         />
       )}
       <p>Genres : {artist.genres.join(", ")}</p>
