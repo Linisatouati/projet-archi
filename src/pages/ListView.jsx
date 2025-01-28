@@ -3,11 +3,10 @@ import React, { useState } from "react";
 import { getAccessToken, searchSpotify } from "../api/spotify";
 import SearchBar from "../components/SearchBar";
 import ResultItem from "../components/ResultItem";
-import { SpotifyTrack } from "../types/spotify";
 
-const ListView: React.FC = () => {
-  const [query, setQuery] = useState<string>("");
-  const [results, setResults] = useState<SpotifyTrack[]>([]);
+const ListView = () => {
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
 
   const handleSearch = async () => {
     const token = await getAccessToken();

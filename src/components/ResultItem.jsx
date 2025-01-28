@@ -1,13 +1,8 @@
 // ResultItem.js
 import React from "react";
 import { Link } from "react-router-dom";
-import { SpotifyTrack } from "../types/spotify";
 
-interface ResultItemProps {
-  track: SpotifyTrack;
-}
-
-const ResultItem: React.FC<ResultItemProps> = ({ track }) => {
+const ResultItem = ({ track }) => {
   return (
     <div className="card">
       <img

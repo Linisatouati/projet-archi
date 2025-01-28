@@ -1,16 +1,13 @@
-// Home.js
 import React from "react";
-import { Link } from "react-router-dom";
+import ButtonStart from "../components/ButtonStart"; // Import du bouton
 import "../App.css"; // Assurez-vous que le chemin est correct
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <div className="container">
       <h1>Bienvenue sur Spotify Explorer</h1>
       <p>Découvrez des artistes, des morceaux, et plus encore!</p>
-      <Link to="/list">
-        <button>Commencez la recherche</button>
-      </Link>
+      <ButtonStart /> {/* Utilisation du composant bouton */}
     </div>
   );
 };

@@ -1,12 +1,7 @@
+// SearchBar.js
 import React from "react";
 
-interface SearchBarProps {
-  query: string;
-  onChange: (value: string) => void;
-  onSearch: () => void;
-}
-
-const SearchBar: React.FC<SearchBarProps> = ({ query, onChange, onSearch }) => {
+const SearchBar = ({ query, onChange, onSearch }) => {
   return (
     <div style={{ marginBottom: "20px" }}>
       <input
