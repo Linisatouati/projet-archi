@@ -1,6 +1,6 @@
 :root {
   --primary-color: #1db954; /* Vert Spotify */
-  --secondary-color: #191414; /* Noir profond */
+  --secondary-color: #1f1f1f; /* Noir profond */
   --accent-color: #535bf2; /* Violet pour les actions */
   --background-color: #121212; /* Noir pour l'arrière-plan */
   --text-color: #ffffff; /* Texte principal */
@@ -99,6 +99,13 @@ a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   animation: fadeIn 1s ease;
 }
+.card-list {
+  display: flex;
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante si nécessaire */
+  justify-content: center; /* Aligne les éléments horizontalement au centre */
+  gap: 20px; /* Espace entre les éléments */
+}
+
 
 .card h3 {
   margin-bottom: 10px;
