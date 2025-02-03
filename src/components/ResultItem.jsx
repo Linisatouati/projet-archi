@@ -1,8 +1,7 @@
-// ResultItem.js
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ResultItem = ({ track }) => {
+const ResultItem = ({ track, addToFavorites }) => {
   return (
     <div className="card">
       <img
@@ -14,6 +13,7 @@ const ResultItem = ({ track }) => {
         <h3>{track.name}</h3>
         <p>{track.artists[0].name}</p>
         <Link to={`/details/${track.artists[0].id}`}>Voir plus</Link>
+        <button onClick={() => addToFavorites(track)}>Ajouter aux favoris</button>
       </div>
     </div>
   );

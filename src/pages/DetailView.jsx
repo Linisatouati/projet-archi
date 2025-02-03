@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import { getAccessToken, fetchArtistDetails } from "../api/spotify";
-import ArtistCard from "../components/ArtistCard"; // Nouveau chemin
+import { useAccessToken, useArtistDetails } from "../api/spotify";
+import ArtistCard from "../components/ArtistCard";
 
 const DetailView = () => {
   const { id } = useParams();
-  const [artist, setArtist] = useState(null);
+  const { data: token } = useAccessToken();
+  const { data: artist, isLoading, error } = useArtistDetails(id, token);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const token = await getAccessToken();
-      const data = await fetchArtistDetails(id, token);
-      setArtist(data);
-    };
-    fetchData();
-  }, [id]);
-
-  if (!artist) return <p>Chargement des données...</p>;
-
+  if (isLoading) return <p>Chargement des données...</p>;
+  if (error) return <p>Erreur : {error.message}</p>;
+  
   return (
     <div>
       <ArtistCard artist={artist} />
