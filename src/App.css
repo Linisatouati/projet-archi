@@ -372,3 +372,31 @@ a:hover {
     opacity: 1;
   }
 }
+/* Style du header pour aligner les boutons à droite, mais sans fond de bande */
+.header {
+  position: fixed; /* Fixe le header en haut de la page */
+  top: 10px; /* Légèrement en bas du bord supérieur pour l'espacement */
+  right: 10px; /* Positionné à droite */
+  display: flex;
+  justify-content: flex-end; /* Aligner les boutons à droite */
+  gap: 20px; /* Espacement entre les boutons */
+  z-index: 1000; /* S'assurer que les boutons soient au-dessus du contenu */
+  padding: 10px;
+  width: auto;
+}
+
+/* Style des boutons avec fond noir et texte vert */
+.favorites-button, .home-button {
+  background-color:  rgba(0, 0, 0, 0.7);/* Fond noir */
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  color: #28a745; /* Texte vert */
+  transition: background-color 0.3s;
+}
+
+/* Effet au survol */
+.favorites-button:hover, .home-button:hover {
+  background-color: #333; /* Changer la couleur de fond au survol */
+}

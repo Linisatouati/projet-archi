@@ -6,7 +6,7 @@ const FavoritesButton = () => {
 
   return (
     <button onClick={() => navigate("/favorites")} className="favorites-button">
-      ⭐ Mes Favoris
+       Mes Favoris
     </button>
   );
 };

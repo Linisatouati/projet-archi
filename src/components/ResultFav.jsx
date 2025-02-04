@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ResultItem = ({ track, addToFavorites }) => {
+
+const ResultFav = ({ track }) => {
   return (
     <div className="card">
       <img
@@ -14,12 +15,10 @@ const ResultItem = ({ track, addToFavorites }) => {
         <p>{track.artists[0].name}</p>
         <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
           <Link to={`/details/${track.artists[0].id}`}>Voir plus</Link>
-          <button onClick={() => addToFavorites(track)}>Ajouter aux favoris</button>
         </div>
       </div>
     </div>
   );
 };
 
-
-export default ResultItem;
+export default ResultFav;

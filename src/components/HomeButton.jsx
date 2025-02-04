@@ -6,7 +6,7 @@ const HomeButton = () => {
 
   return (
     <button onClick={() => navigate("/")} className="home-button">
-      🏠 Accueil
+      Accueil
     </button>
   );
 };
