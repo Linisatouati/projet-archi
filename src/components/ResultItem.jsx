@@ -12,8 +12,10 @@ const ResultItem = ({ track, addToFavorites }) => {
       <div>
         <h3>{track.name}</h3>
         <p>{track.artists[0].name}</p>
-        <Link to={`/details/${track.artists[0].id}`}>Voir plus</Link>
-        <button onClick={() => addToFavorites(track)}>Ajouter aux favoris</button>
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+          <Link to={`/details/${track.artists[0].id}`}>Voir plus</Link>
+          <button onClick={() => addToFavorites(track)}>Ajouter aux favoris</button>
+        </div>
       </div>
     </div>
   );
