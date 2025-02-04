@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useAccessToken, useSpotifySearch } from "../api/spotify";
 import SearchBar from "../components/SearchBar";
 import ResultItem from "../components/ResultItem";
+import HomeButton from "../components/HomeButton"; // Ajout du bouton
+import FavoritesButton from "../components/FavoritesButton"; // 🔹 Bouton Favoris
 
 const ListView = () => {
   const [query, setQuery] = useState("");
@@ -22,17 +24,11 @@ const ListView = () => {
     });
   };
 
-  // Fonction pour supprimer un morceau des favoris
-  const removeFromFavorites = (trackId) => {
-    setFavorites((prevFavorites) => {
-      const updatedFavorites = prevFavorites.filter((track) => track.id !== trackId);
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites)); // Sauvegarder dans localStorage
-      return updatedFavorites;
-    });
-  };
 
   return (
     <div className="container">
+      <FavoritesButton /> {/* 🔹 Ajout du bouton Favoris */}
+      <HomeButton /> {/* Ajout du bouton Home */}
       <h1>Rechercher des morceaux ou artistes</h1>
       <SearchBar query={query} onChange={setQuery} />
 
@@ -47,21 +43,6 @@ const ListView = () => {
             addToFavorites={addToFavorites} // Passer la fonction addToFavorites
           />
         ))}
-      </div>
-
-      <h2>Favoris</h2>
-      <div>
-        {favorites.length === 0 ? (
-          <p>Aucun favori ajouté.</p>
-        ) : (
-          favorites.map((track, index) => (
-            <div key={`${track.id}-${index}`}>
-              <p>{track.name} - {track.artists[0].name}</p>
-              {/* Bouton pour supprimer un favori */}
-              <button onClick={() => removeFromFavorites(track.id)}>Supprimer</button>
-            </div>
-          ))
-        )}
       </div>
     </div>
   );

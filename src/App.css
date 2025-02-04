@@ -10,8 +10,12 @@
   --max-width: 1280px; /* Pour limiter la largeur des éléments */
 }
 
+/* Ajout de l'image d'arrière-plan */
 body {
-  background-color: var(--background-color);
+  background: url('./image/spot.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-color: var(--background-color); /* Couleur de secours */
+  position: relative;
   color: var(--text-color);
   font-family: 'Inter', Arial, sans-serif;
   margin: 0;
@@ -24,11 +28,206 @@ body {
   min-height: 100vh;
 }
 
+/* Effet sombre (overlay) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* Ajuste l’opacité ici */
+  z-index: -1;:root {
+    --primary-color: #1db954; /* Vert Spotify */
+    --secondary-color: #1f1f1f; /* Noir profond */
+    --accent-color: #535bf2; /* Violet pour les actions */
+    --background-color: #121212; /* Noir pour l'arrière-plan */
+    --text-color: #ffffff; /* Texte principal */
+    --muted-text-color: #b3b3b3; /* Texte secondaire */
+    --button-hover-color: #1ed760; /* Survol des boutons */
+    --border-radius: 12px;
+    --max-width: 1280px; /* Pour limiter la largeur des éléments */
+  }
+  
+  /* Ajout de l'image d'arrière-plan */
+  body {
+    background: url('./image/spot.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: var(--background-color); /* Couleur de secours */
+    position: relative;
+    color: var(--text-color);
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 100vh;
+  }
+  
+  /* Effet sombre (overlay) */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Ajuste l’opacité ici */
+    z-index: -1;
+  }
+  
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    animation: fadeIn 1.2s ease-in-out;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  p {
+    color: var(--muted-text-color);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    animation: popIn 1s ease;
+  }
+  
+  button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  img {
+    max-width: 250px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease;
+    object-fit: cover;
+  }
+  
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: var(--primary-color);
+  }
+  
+  .container {
+    max-width: var(--max-width);
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Nouveau conteneur pour la recherche avec fond sombre */
+  .search-container {
+    background-color: rgba(0, 0, 0, 0.6); /* Ombre sombre */
+    border-radius: var(--border-radius); /* Coins arrondis */
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Ombre autour du rectangle */
+    margin-bottom: 30px; /* Espace sous la barre de recherche */
+  }
+  
+  .search-container h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espacement entre le champ de texte et le bouton */
+  }
+  
+  .search-bar input {
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 350px;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border 0.3s ease;
+  }
+  
+  .search-bar input:focus {
+    border-color: var(--primary-color);
+  }
+  
+  .search-bar button {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-bar button:hover {
+    background-color: var(--button-hover-color);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes popIn {
+    0% {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+}
+
 h1 {
   font-size: 3.5rem;
   margin-bottom: 20px;
   color: var(--primary-color);
   animation: fadeIn 1.2s ease-in-out;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 p {
@@ -99,13 +298,13 @@ a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   animation: fadeIn 1s ease;
 }
+
 .card-list {
   display: flex;
-  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante si nécessaire */
-  justify-content: center; /* Aligne les éléments horizontalement au centre */
-  gap: 20px; /* Espace entre les éléments */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
-
 
 .card h3 {
   margin-bottom: 10px;

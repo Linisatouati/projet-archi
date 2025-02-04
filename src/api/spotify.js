@@ -78,3 +78,28 @@ export const useArtistDetails = (id, token) => {
     cacheTime: 600000,
   });
 };
+
+// 🔹 Fonction pour récupérer les top tracks d'un artiste
+const fetchTopTracks = async ({ queryKey }) => {
+  const [, id, token] = queryKey;
+  if (!id) return null;
+
+  const response = await axios.get(
+    `https://api.spotify.com/v1/artists/${id}/top-tracks?market=FR`, // Modifier la région si nécessaire
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    }
+  );
+  return response.data;
+};
+
+// 🔹 Hook React Query pour récupérer les top tracks
+export const useTopTracks = (id, token) => {
+  return useQuery({
+    queryKey: ["topTracks", id, token],
+    queryFn: fetchTopTracks,
+    enabled: !!id && !!token,
+    staleTime: 300000,
+    cacheTime: 600000,
+  });
+};
